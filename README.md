@@ -114,7 +114,7 @@ Current Code Examples working with GTM:
   // iterate over array to individually apply addEventListener
   for (i = 0; i < buttons.length; i++) {
 
-    // adds addEventListener onto buttons, since the attribute isn't defined on the buttons themselves
+    // adds addEventListener onto buttons, since the attribute is not defined on the buttons themselves
     buttons[i].shadowRoot.children[1].addEventListener("click", function (evt) {
           // have to work way back up the DOM past shadowRoot to get the attribute, again, since listener has to be put on button, but attribute was put on a parent element instead
           var content = this.parentNode.host.getAttribute('data-buttonnumber');
