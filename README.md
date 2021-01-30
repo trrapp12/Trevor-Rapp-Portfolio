@@ -18,9 +18,10 @@
 Current Code Examples working with GTM: 
 
 <details>
-  <summary>JavaScript to write dynamic HTML script tag:</summary>
+  <summary> JavaScript to write dynamic HTML script tag </summary>
 
-```html
+```javascript
+
 <script>
 (function () {
   // define function
@@ -53,6 +54,7 @@ Current Code Examples working with GTM:
   }
 })()
 </script>  
+
 ```
 </details>
 
@@ -105,7 +107,7 @@ Current Code Examples working with GTM:
 <details>
   <summary>Button Click Event Listener that functions even through a shadowRoot </summary>
 
-```html 
+```javascript 
 <script>
 (function () {
   //create node array of buttons
@@ -143,7 +145,7 @@ Current Code Examples working with GTM:
 <details>
   <summary>Listener to check if radio is checked</summary>
   
-  ```html 
+  ```javascript 
 
 <script>
 (function (){
@@ -190,7 +192,7 @@ Current Code Examples working with GTM:
 <details>
   <summary>Listener to Get Elapsed Time</summary>
   
-  ```html 
+  ```javascript 
 <script>
 (function () {
 var startTime = new Date().getTime();
