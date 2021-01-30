@@ -22,7 +22,6 @@ Current Code Examples working with GTM:
 
 ```javascript
 
-<script>
 (function () {
   // define function
   function addScript() {
@@ -53,8 +52,6 @@ Current Code Examples working with GTM:
     // Note - error messages will vary depending on browser
   }
 })()
-</script>  
-
 ```
 </details>
 
@@ -108,7 +105,6 @@ Current Code Examples working with GTM:
   <summary>Button Click Event Listener that functions even through a shadowRoot </summary>
 
 ```javascript 
-<script>
 (function () {
   //create node array of buttons
   var buttons = document.querySelectorAll("[data-buttonNumber]");
@@ -128,7 +124,6 @@ Current Code Examples working with GTM:
     });
   }
 })();
-</script>
 ```
 </details>
 
@@ -146,8 +141,6 @@ Current Code Examples working with GTM:
   <summary>Listener to check if radio is checked</summary>
   
   ```javascript 
-
-<script>
 (function (){
 
   var parent = document.getElementsByClassName('create-invite-radio-group');
@@ -184,8 +177,6 @@ Current Code Examples working with GTM:
   })
 
 })()
-
-</script>
 ```
 </details>
 
@@ -193,7 +184,6 @@ Current Code Examples working with GTM:
   <summary>Listener to Get Elapsed Time</summary>
   
   ```javascript 
-<script>
 (function () {
 var startTime = new Date().getTime();
 var paymentSection = document.getElementById('checkout-edit-payment');
@@ -252,7 +242,6 @@ window.dataLayer.push({
 }
 });
 })();
-</script>
 ```
 </details>
 
