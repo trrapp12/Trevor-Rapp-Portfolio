@@ -1,4 +1,4 @@
-# Resume
+# Portfolio Links
 
 |Name and Link|Description|Technologies Used|
 |---|---|---|
@@ -15,7 +15,48 @@
 |[CSS/JS Clock](https://trrapp12-ironyard.github.io/CSS_JS_clock/)| uses CSS and Javascript to get current time and convert it into an analog clock display with animation | HTML5, JavaScript, CSS3|
 |[Flex-Box](https://trrapp12-ironyard.github.io/flex-box/)| simple demonstration of flex-box CSS | HTML5, CSS3|
 
+Current Code Examples working with GTM: 
 
+<details>
+  <summary>JavaScript to write dynamic HTML script tag:</summary>
+
+
+```html
+\\function dynamically writes an api-script tag.  This case-use came up when I needed to make sure the script tag was appended as the very last script tag to be read on the page
+<script>
+(function () {
+  // define function
+  function addScript() {
+    //select main wrapper
+    var c = document.querySelector("#mainWrapper");
+    // create outer div
+    var el = document.createElement('div');
+    //give el an id
+    el.id = "teconsent";
+    // create inner script
+    var innerEl = document.createElement('script');
+    //give inner script src attribute, async attribute, and cross origin attribute
+    innerEl.setAttribute('src', 'https://consent.trustarc.com/notice?domain=nuskin.com&country=gb&js=nj2&c=teconsent&language=en_GB&text=true&noticeType=bb&behavior=implied');
+    innerEl.setAttribute('async', 'async');
+    innerEl.setAttribute('crossorigin', '');
+    // append div to wrapper
+    c.appendChild(el)
+    // append script to div
+    el.appendChild(innerEl);
+  };
+    try {
+    //call's function in try catch in case mainwrapper wasn't drawn for some reason, doesn't break the page
+    addScript();
+  }
+  catch(error) {
+    console.error(error);
+    // expected output: ReferenceError: nonExistentFunction is not defined
+    // Note - error messages will vary depending on browser
+  }
+})()
+</script>  
+```
+</details>
 
 
 
