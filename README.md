@@ -58,5 +58,258 @@ Current Code Examples working with GTM:
 ```
 </details>
 
+<details>
+  <summary>JavaScript to scrape dataLayer for an "orderUpdated" Event, then retrieve the amount</summary>
+  
+  ```javaScript
+    var a = window.dataLayer; 
+  var b = [];
+  for (i=0; i <a.length; i++) {
+    if (a[i].event === "orderUpdated") {
+      b.push(a[i])   
+    }
+  }
+  var c = b.pop();
+  return c[0]["orderTotals"].pointsUsed;
+}
+```
+</details>
+
+<details>
+  <summary>JavaScript "Normalizer" (takes the action from a GTM tag and normalizes the capitalization)</summary>
+  
+  ```javascript
+  function () {
+  if(window.google_tag_manager["GTM-TWJS4J3"]) {
+    var a = window.google_tag_manager["GTM-TWJS4J3"].dataLayer.get("context");
+    var b = a.charAt(0).toUpperCase();
+    var c = a.slice(1).toLowerCase();
+    var d = b.concat(c);
+    return d; 
+    console.log("true")
+  }
+  else if (window.google_tag_manager["GTM-5RNZGHC"]) {
+    var a = window.google_tag_manager["GTM-5RNZGHC"].dataLayer.get("context");
+    var b = a.charAt(0).toUpperCase();
+    var c = a.slice(1).toLowerCase();
+    var d = b.concat(c);
+    return d; 
+    console.log("false")
+  }
+  else {
+    console.log("neither 'GTM-TWJS4J3' nor 'GTM-5RNZGHC' buckets detected")
+  }
+}
+  
+  ```
+</details>
+
+<details>
+  <summary>Button Click Event Listener that functions even through a shadowRoot </summary>
+  
+  ```html 
+<script>
+(function () {
+  //create node array of buttons
+  var buttons = document.querySelectorAll("[data-buttonNumber]");
+
+  // iterate over array to individually apply addEventListener
+  for (i = 0; i < buttons.length; i++) {
+
+    // adds addEventListener onto buttons, since the attribute isn't defined on the buttons themselves
+    buttons[i].shadowRoot.children[1].addEventListener("click", function (evt) {
+          // have to work way back up the DOM past shadowRoot to get the attribute, again, since listener has to be put on button, but attribute was put on a parent element instead
+          var content = this.parentNode.host.getAttribute('data-buttonnumber');
+          var stringContent = content.toString();
+          dataLayer.push({
+            'event' : 'buttonPushed',
+            'value' : stringContent
+          });
+    });
+  }
+})();
+</script>
+    ```
+</details>
+
+<details>
+  <summary>IFFE statement that logs user tier into Local Storage </summary>
+  
+  ```javascript
+  (function() {
+    return JSON.parse(JSON.parse(JSON.stringify(localStorage.loyaltyData))).userTier.name
+  })();
+  ```
+</details>
+
+<details>
+  <summary>Listener to check if radio is checked</summary>
+  
+  ```html 
+<script>
+(function (){
+
+  var parent = document.getElementsByClassName('create-invite-radio-group');
+  var group = document.getElementsByClassName("ns-radio");
+  var left = group[0];
+  var middle = group[1];
+  var right = group[2]
+  
+  parent[0].addEventListener('click', function() {
+    if (left.classList.contains("checked")) {
+      console.log('left checked')
+      dataLayer.push({
+        'event': 'linkTypeSelected',
+        'data' : 'customer'
+      })
+    }
+    else if (middle.classList.contains("checked")) {
+      console.log('middle checked')
+      dataLayer.push({
+        'event': 'linkTypeSelected',
+        'data' : 'Member'
+      })
+    }
+    else if (right.classList.contains("checked")) {
+      console.log('right checked')
+      dataLayer.push({
+        'event': 'linkTypeSelected',
+        'data' : 'Brand Affiliate'
+      })
+    }
+    else {
+      console.log('none checked')
+    }
+  })
+
+})()
+
+</script>
+  
+  ```
+</details>
+
+<details>
+  <summary>Listener to Get Elapsed Time</summary>
+  
+  ```html 
+<script>
+(function () {
+var startTime = new Date().getTime();
+var paymentSection = document.getElementById('checkout-edit-payment');
+  var pageTitle={{Page Title}};
+console.log("beginning of function, startTime is " + startTime);
+
+
+
+window.addEventListener('click', function (evt){
+  
+if (evt.target.parentNode.id === 'backToCartButton' && pageTitle==Checkout) {
+var updatedTime = new Date().getTime();
+
+console.log("in backToCartButton, startTime is " + startTime);
+var elapsedTimeNew = startTime ? ((updatedTime - startTime)/1000) : '1';
+window.dataLayer.push({
+'event': 'calculateTimeUponExitNew',
+'elapsedTimeNew': elapsedTimeNew,
+'message' : 'backToCartButton clicked'
+});
+}
+})
+
+paymentSection.addEventListener('click', function (evt) {
+if (startTime === null) {
+startTime = new Date().getTime();
+console.log("in eventListener, startTime is " + startTime);
+return;
+}
+// if this is the arrow being clicked or the continue button being clicked
+if (evt.target.classList.contains('section-edit') || evt.target.id === 'paymentContinueButton') {
+var updatedTime = new Date().getTime();
+window.dataLayer.push({
+'event': 'calculateTimeUponExitNew',
+'elapsedTimeNew': ((updatedTime - startTime)/1000),
+'message' : 'arrow or continue clicked'
+});
+}
+}
+);
+window.addEventListener('beforeunload', function() {
+if (startTime === null) {
+startTime = new Date().getTime();
+var updatedTime = new Date().getTime();
+window.dataLayer.push({
+'event': 'calculateTimeUponExitNew',
+'elapsedTimeNew': ((updatedTime - startTime)/1000),
+'message' : 'beforeunload activated with start time null'
+});
+}
+else {
+var updatedTime = new Date().getTime();
+  console.log("hey there", updatedTime, startTime);
+window.dataLayer.push({
+'event': 'calculateTimeUponExitNew',
+'elapsedTimeNew': ((updatedTime - startTime)/1000),
+'message' : 'beforeunload activated with start time set'
+});
+}
+});
+})();
+</script>
+  
+  ```
+</details>
+
+<details>
+  <summary>Dynamically detect country code in url to determine which external ID entry to pull from local Storage</summary>
+  
+  ```javascript
+  (function () {
+  var url = window.location.href;
+  var countryCodeRegEx = /[a-z]{2}_[A-Z]{2}/ ;
+  var countryCode = countryCodeRegEx.exec(url).toString().slice(-2);
+  console.log(countryCode);
+  var localStorageCountry = "orders-" + countryCode
+  var a = JSON.parse(window.localStorage[localStorageCountry]);
+  return a[0].externalId; 
+})()
+  
+  ```
+</details>
+
+<details>
+  <summary>IFFE to change camelCase to TitleCase</summary>
+  
+  ```javascript
+  (function () {
+  // var eventName = {{Event}};
+  var eventName = "skinConsult"
+  var firstWord = /^[a-z]*(?=[A-Z])/;
+  var subsequentWords = /[A-Z](?<=[A-Z])[a-z]*/
+  var array = [];
+
+  function pushFirstName () {
+    var newName = eventName.match(firstWord).toString();
+    var newNameCap = newName.charAt(0).toUpperCase() + newName.slice(1)
+    array.push(newNameCap);
+  }
+  function pushSubsequentWords () {
+    array.push(eventName.match(subsequentWords).toString());
+  }
+  function concatPhrase () {
+    // console.log(array.join(' '));
+    return array.join(" ");
+  }
+
+  pushFirstName();
+  pushSubsequentWords();
+  concatPhrase();
+
+})();
+  
+  ```
+</details>
+
+
 
 
