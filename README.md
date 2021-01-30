@@ -22,6 +22,7 @@ Current Code Examples working with GTM:
 
 
 ```html
+
 \\function dynamically writes an api-script tag.  This case-use came up when I needed to make sure the script tag was appended as the very last script tag to be read on the page
 <script>
 (function () {
