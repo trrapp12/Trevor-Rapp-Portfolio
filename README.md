@@ -59,8 +59,9 @@ Current Code Examples working with GTM:
 <details>
   <summary>JavaScript to scrape dataLayer for an "orderUpdated" Event, then retrieve the amount</summary>
   
-  ```javaScript
-    var a = window.dataLayer; 
+  ```javascript
+  function () {
+  var a = window.dataLayer; 
   var b = [];
   for (i=0; i <a.length; i++) {
     if (a[i].event === "orderUpdated") {
@@ -143,6 +144,7 @@ Current Code Examples working with GTM:
   <summary>Listener to check if radio is checked</summary>
   
   ```html 
+
 <script>
 (function (){
 
@@ -196,8 +198,6 @@ var paymentSection = document.getElementById('checkout-edit-payment');
   var pageTitle={{Page Title}};
 console.log("beginning of function, startTime is " + startTime);
 
-
-
 window.addEventListener('click', function (evt){
   
 if (evt.target.parentNode.id === 'backToCartButton' && pageTitle==Checkout) {
@@ -212,7 +212,6 @@ window.dataLayer.push({
 });
 }
 })
-
 paymentSection.addEventListener('click', function (evt) {
 if (startTime === null) {
 startTime = new Date().getTime();
