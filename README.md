@@ -2,8 +2,7 @@
 
 |Link|Description|Technologies Used|
 |---|---|---|
-
-|[UTIN-SLAA](https://help.github.com/articles/page-build-failed-tag-not-properly-terminated/)| free-lance work completed for local 501-3(c)|JavaScript, ReactJS, HTML5, CSS3|
+|[UTIN-SLAA](https://help.github.com/articles/page-build-failed-tag-not-properly-terminated/)| free-lance work completed for local 501-3(c) |JavaScript, ReactJS, HTML5, CSS3|
 |[Utah Dermagraphics(https://trrapp12.github.io/utahdermagraphics/)| free-lance work done to improve a local business owners website| JavaScript, HTML5, CSS3|
 |[Agents of Shield Directory](http://trrapp12.github.io/avengers_agents_of_shield_directory/)| description | JavasScript, CSS3, HTML5|
 |[Calculator](https://trrapp12.github.io/refactored-calculator/)| description | JavasScript, CSS3, HTML5|
