@@ -20,10 +20,7 @@ Current Code Examples working with GTM:
 <details>
   <summary>JavaScript to write dynamic HTML script tag:</summary>
 
-
 ```html
-
-//function dynamically writes an api-script tag.  This case-use came up when I needed to make sure the script tag was appended as the very last script tag to be read on the page
 <script>
 (function () {
   // define function
@@ -101,14 +98,13 @@ Current Code Examples working with GTM:
     console.log("neither 'GTM-TWJS4J3' nor 'GTM-5RNZGHC' buckets detected")
   }
 }
-  
-  ```
+```
 </details>
 
 <details>
   <summary>Button Click Event Listener that functions even through a shadowRoot </summary>
-  
-  ```html 
+
+```html 
 <script>
 (function () {
   //create node array of buttons
@@ -130,7 +126,7 @@ Current Code Examples working with GTM:
   }
 })();
 </script>
-    ```
+```
 </details>
 
 <details>
@@ -186,8 +182,7 @@ Current Code Examples working with GTM:
 })()
 
 </script>
-  
-  ```
+```
 </details>
 
 <details>
@@ -257,8 +252,7 @@ window.dataLayer.push({
 });
 })();
 </script>
-  
-  ```
+```
 </details>
 
 <details>
@@ -274,8 +268,7 @@ window.dataLayer.push({
   var a = JSON.parse(window.localStorage[localStorageCountry]);
   return a[0].externalId; 
 })()
-  
-  ```
+```
 </details>
 
 <details>
@@ -307,8 +300,7 @@ window.dataLayer.push({
   concatPhrase();
 
 })();
-  
-  ```
+```
 </details>
 
 
