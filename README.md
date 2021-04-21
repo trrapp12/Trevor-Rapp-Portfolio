@@ -2,20 +2,7 @@
 
 |Name and Link|Description|Technologies Used|
 |---|---|---|
-|[Sundae Worship](https://trrapp12.github.io/Sundae-Worship/)| A website that demonstrates
-* HTLM5 
-* CSS3
-* CSS Grid
-* JavaScript
-* NodeJS
-* ExpressJS 
-* Git commits
-* Github repository
-* responsive design 
-* ADA compliant 
-* GDPR cookies 
-* GET and POST requests 
-* MVC |JavaScript, HTML5, CSS3, ExpressJS, NodeJS|
+|[Sundae Worship](https://trrapp12.github.io/Sundae-Worship/)| A website that demonstrates * HTLM5 * CSS3 * CSS Grid * JavaScript * NodeJS * ExpressJS * Git commits * Github repository * responsive design * ADA compliant * GDPR cookies * GET and POST requests * MVC |JavaScript, HTML5, CSS3, ExpressJS, NodeJS|
 |[UTIN-SLAA](https://help.github.com/articles/page-build-failed-tag-not-properly-terminated/)| free-lance work completed for local 501-3(c) |JavaScript, ReactJS, HTML5, CSS3|
 |[Utah Dermagraphics](https://trrapp12.github.io/utahdermagraphics/)| free-lance work done to improve a local business owners website| JavaScript, HTML5, CSS3|
 |[Recipe Organizer](http://trrapp12.github.io/recipe_organizer/)| V-School Final Project * Basic CRUD functionality allowing users to add, edit, and delete recipes. * It allows users to collect, sort, organize, and browse recipes. * It allows for photos to be uploaded. * It allows users to sort and retrieve recipes by name or by ingredient type. * It links to a few Pinterest sites for resources to other recipes.| Django, SQLite, JavaScript, HTML5, CSS3, MVC|
